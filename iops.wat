@@ -7,18 +7,19 @@
   (type (;5;) (func (param i32 i64 i32 i32) (result i32)))
   (type (;6;) (func (param i32 i32 i32 i32) (result i32)))
   (type (;7;) (func (param i64 i64 i64 i64 i64)))
-  (type (;8;) (func (result i32)))
-  (type (;9;) (func))
-  (type (;10;) (func (param i32 i32 i32 i32 i32) (result i32)))
-  (type (;11;) (func (param i32 i32 i32)))
-  (type (;12;) (func (param i32 i32 i32 i32 i32)))
-  (type (;13;) (func (param f64 i32) (result f64)))
+  (type (;8;) (func (param i64 i32 i32 i32 i32)))
+  (type (;9;) (func (result i32)))
+  (type (;10;) (func))
+  (type (;11;) (func (param i32 i32 i32 i32 i32) (result i32)))
+  (type (;12;) (func (param i32 i32 i32)))
+  (type (;13;) (func (param i32 i32 i32 i32 i32)))
+  (type (;14;) (func (param f64 i32) (result f64)))
   (import "wasi_snapshot_preview1" "clock_time_get" (func $__imported_wasi_snapshot_preview1_clock_time_get (type 2)))
   (import "wasi_snapshot_preview1" "fd_close" (func $__imported_wasi_snapshot_preview1_fd_close (type 3)))
   (import "wasi_snapshot_preview1" "fd_fdstat_get" (func $__imported_wasi_snapshot_preview1_fd_fdstat_get (type 4)))
   (import "wasi_snapshot_preview1" "fd_seek" (func $__imported_wasi_snapshot_preview1_fd_seek (type 5)))
   (import "wasi_snapshot_preview1" "fd_write" (func $__imported_wasi_snapshot_preview1_fd_write (type 6)))
-  (func $get_iops (type 7) (param i64 i64 i64 i64 i64)
+  (func $get_iops_for_long_long (type 7) (param i64 i64 i64 i64 i64)
     (local i32 i32 i32 i64 i32 i32 i32 i32 i64 i64 i64 i64 i64 i32 i32 i32 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i32 i32 i32 i32 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i32 i32 i32 i64 i64 i64 i64 i32 i32 i32 i32 i32 i64 i64 i64 i64 i64 f32 f32 f32 f32 f64 i32 i64 i32 i32 i32 i32 i32 i32 i32 i32)
     global.get 0
     local.set 5
@@ -238,7 +239,7 @@
     local.get 7
     local.get 55
     i64.store offset=32
-    i32.const 1113
+    i32.const 1162
     local.set 57
     i32.const 32
     local.set 58
@@ -321,7 +322,7 @@
       local.get 7
       local.get 78
       f64.store
-      i32.const 1172
+      i32.const 1257
       local.set 79
       local.get 79
       local.get 7
@@ -342,7 +343,7 @@
       local.get 7
       local.get 83
       i32.store offset=16
-      i32.const 1222
+      i32.const 1303
       local.set 84
       i32.const 16
       local.set 85
@@ -362,6 +363,354 @@
     i32.add
     local.set 88
     local.get 88
+    global.set 0
+    return)
+  (func $get_iops_for_int (type 8) (param i64 i32 i32 i32 i32)
+    (local i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i64 i64 i64 i64 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i64 i32 i32 i32 i64 i64 i64 i64 i32 i32 i32 i32 i32 i64 i64 i64 i64 i64 f32 f32 f32 f32 f64 i32 i32 i32 i32 i32 i32 i32 i32 i32)
+    global.get 0
+    local.set 5
+    i32.const 144
+    local.set 6
+    local.get 5
+    local.get 6
+    i32.sub
+    local.set 7
+    local.get 7
+    global.set 0
+    local.get 7
+    local.get 0
+    i64.store offset=136
+    local.get 7
+    local.get 1
+    i32.store offset=132
+    local.get 7
+    local.get 2
+    i32.store offset=128
+    local.get 7
+    local.get 3
+    i32.store offset=124
+    local.get 7
+    local.get 4
+    i32.store offset=120
+    i32.const 0
+    local.set 8
+    local.get 7
+    local.get 8
+    i32.store offset=116
+    i32.const 96
+    local.set 9
+    local.get 7
+    local.get 9
+    i32.add
+    local.set 10
+    local.get 10
+    local.set 11
+    i32.const 0
+    local.set 12
+    local.get 11
+    local.get 12
+    call $gettimeofday
+    drop
+    i32.const 0
+    local.set 13
+    local.get 7
+    local.get 13
+    i32.store offset=76
+    block  ;; label = @1
+      loop  ;; label = @2
+        local.get 7
+        i32.load offset=76
+        local.set 14
+        local.get 14
+        local.set 15
+        local.get 15
+        i64.extend_i32_s
+        local.set 16
+        local.get 7
+        i64.load offset=136
+        local.set 17
+        local.get 16
+        local.set 18
+        local.get 17
+        local.set 19
+        local.get 18
+        local.get 19
+        i64.lt_s
+        local.set 20
+        i32.const 1
+        local.set 21
+        local.get 20
+        local.get 21
+        i32.and
+        local.set 22
+        local.get 22
+        i32.eqz
+        br_if 1 (;@1;)
+        local.get 7
+        i32.load offset=132
+        local.set 23
+        local.get 7
+        i32.load offset=116
+        local.set 24
+        local.get 24
+        local.get 23
+        i32.add
+        local.set 25
+        local.get 7
+        local.get 25
+        i32.store offset=116
+        local.get 7
+        i32.load offset=128
+        local.set 26
+        local.get 7
+        i32.load offset=116
+        local.set 27
+        local.get 27
+        local.get 26
+        i32.sub
+        local.set 28
+        local.get 7
+        local.get 28
+        i32.store offset=116
+        local.get 7
+        i32.load offset=124
+        local.set 29
+        local.get 7
+        i32.load offset=116
+        local.set 30
+        local.get 30
+        local.get 29
+        i32.mul
+        local.set 31
+        local.get 7
+        local.get 31
+        i32.store offset=116
+        local.get 7
+        i32.load offset=120
+        local.set 32
+        local.get 7
+        i32.load offset=116
+        local.set 33
+        local.get 33
+        local.get 32
+        i32.div_s
+        local.set 34
+        local.get 7
+        local.get 34
+        i32.store offset=116
+        local.get 7
+        i32.load offset=76
+        local.set 35
+        i32.const 1
+        local.set 36
+        local.get 35
+        local.get 36
+        i32.add
+        local.set 37
+        local.get 7
+        local.get 37
+        i32.store offset=76
+        br 0 (;@2;)
+      end
+    end
+    i32.const 80
+    local.set 38
+    local.get 7
+    local.get 38
+    i32.add
+    local.set 39
+    local.get 39
+    local.set 40
+    i32.const 0
+    local.set 41
+    local.get 40
+    local.get 41
+    call $gettimeofday
+    drop
+    local.get 7
+    i64.load offset=80
+    local.set 42
+    i64.const 1000
+    local.set 43
+    local.get 42
+    local.get 43
+    i64.mul
+    local.set 44
+    local.get 7
+    i64.load offset=88
+    local.set 45
+    i64.const 1000
+    local.set 46
+    local.get 45
+    local.get 46
+    i64.div_s
+    local.set 47
+    local.get 44
+    local.get 47
+    i64.add
+    local.set 48
+    local.get 7
+    i64.load offset=96
+    local.set 49
+    i64.const 1000
+    local.set 50
+    local.get 49
+    local.get 50
+    i64.mul
+    local.set 51
+    local.get 7
+    i64.load offset=104
+    local.set 52
+    i64.const 1000
+    local.set 53
+    local.get 52
+    local.get 53
+    i64.div_s
+    local.set 54
+    local.get 51
+    local.get 54
+    i64.add
+    local.set 55
+    local.get 48
+    local.get 55
+    i64.sub
+    local.set 56
+    local.get 7
+    local.get 56
+    i64.store offset=64
+    local.get 7
+    i64.load offset=136
+    local.set 57
+    local.get 7
+    i64.load offset=64
+    local.set 58
+    local.get 7
+    local.get 58
+    i64.store offset=40
+    local.get 7
+    local.get 57
+    i64.store offset=32
+    i32.const 1113
+    local.set 59
+    i32.const 32
+    local.set 60
+    local.get 7
+    local.get 60
+    i32.add
+    local.set 61
+    local.get 59
+    local.get 61
+    call $printf
+    drop
+    local.get 7
+    i64.load offset=64
+    local.set 62
+    i64.const 0
+    local.set 63
+    local.get 62
+    local.set 64
+    local.get 63
+    local.set 65
+    local.get 64
+    local.get 65
+    i64.eq
+    local.set 66
+    i32.const 1
+    local.set 67
+    local.get 66
+    local.get 67
+    i32.and
+    local.set 68
+    block  ;; label = @1
+      block  ;; label = @2
+        local.get 68
+        i32.eqz
+        br_if 0 (;@2;)
+        i32.const 1078
+        local.set 69
+        i32.const 0
+        local.set 70
+        local.get 69
+        local.get 70
+        call $printf
+        drop
+        br 1 (;@1;)
+      end
+      local.get 7
+      i64.load offset=136
+      local.set 71
+      i64.const 2
+      local.set 72
+      local.get 71
+      local.get 72
+      i64.shl
+      local.set 73
+      local.get 7
+      i64.load offset=64
+      local.set 74
+      local.get 73
+      local.get 74
+      i64.div_s
+      local.set 75
+      local.get 75
+      f32.convert_i64_s
+      local.set 76
+      f32.const 0x1.f4p+9 (;=1000;)
+      local.set 77
+      local.get 76
+      local.get 77
+      f32.mul
+      local.set 78
+      local.get 7
+      local.get 78
+      f32.store offset=60
+      local.get 7
+      f32.load offset=60
+      local.set 79
+      local.get 79
+      f64.promote_f32
+      local.set 80
+      local.get 7
+      local.get 80
+      f64.store
+      i32.const 1217
+      local.set 81
+      local.get 81
+      local.get 7
+      call $printf
+      drop
+      local.get 7
+      i32.load offset=116
+      local.set 82
+      i32.const 1
+      local.set 83
+      local.get 82
+      local.get 83
+      i32.and
+      local.set 84
+      local.get 7
+      local.get 84
+      i32.store offset=16
+      i32.const 1303
+      local.set 85
+      i32.const 16
+      local.set 86
+      local.get 7
+      local.get 86
+      i32.add
+      local.set 87
+      local.get 85
+      local.get 87
+      call $printf
+      drop
+    end
+    i32.const 144
+    local.set 88
+    local.get 7
+    local.get 88
+    i32.add
+    local.set 89
+    local.get 89
     global.set 0
     return)
   (func $gettimeofday (type 4) (param i32 i32) (result i32)
@@ -450,7 +799,7 @@
     end
     i32.const 0
     local.get 0
-    i32.store offset=3872
+    i32.store offset=3952
     i32.const -1)
   (func $__stdio_close (type 3) (param i32) (result i32)
     local.get 0
@@ -473,7 +822,7 @@
         br_if 0 (;@2;)
         i32.const 0
         i32.const 28
-        i32.store offset=3872
+        i32.store offset=3952
         br 1 (;@1;)
       end
       block  ;; label = @2
@@ -489,7 +838,7 @@
         br_if 0 (;@2;)
         i32.const 0
         local.get 2
-        i32.store offset=3872
+        i32.store offset=3952
         i32.const -1
         local.set 4
         br 1 (;@1;)
@@ -692,7 +1041,7 @@
       local.set 2
       i32.const 0
       local.get 0
-      i32.store offset=3872
+      i32.store offset=3952
     end
     local.get 1
     i32.const 32
@@ -749,7 +1098,7 @@
         i32.const 76
         i32.eq
         select
-        i32.store offset=3872
+        i32.store offset=3952
         i64.const -1
         local.set 1
         br 1 (;@1;)
@@ -779,7 +1128,7 @@
     local.get 2
     local.get 1
     i32.store offset=12
-    i32.const 3632
+    i32.const 3712
     local.get 0
     local.get 1
     call $vfprintf
@@ -789,9 +1138,9 @@
     i32.add
     global.set 0
     local.get 1)
-  (func $__ofl_lock (type 8) (result i32)
-    i32.const 4920)
-  (func $__stdio_exit (type 9)
+  (func $__ofl_lock (type 9) (result i32)
+    i32.const 5000)
+  (func $__stdio_exit (type 10)
     (local i32 i32 i32)
     block  ;; label = @1
       call $__ofl_lock
@@ -843,7 +1192,7 @@
     end
     block  ;; label = @1
       i32.const 0
-      i32.load offset=4924
+      i32.load offset=5004
       local.tee 0
       i32.eqz
       br_if 0 (;@1;)
@@ -883,7 +1232,7 @@
     end
     block  ;; label = @1
       i32.const 0
-      i32.load offset=3744
+      i32.load offset=3824
       local.tee 0
       i32.eqz
       br_if 0 (;@1;)
@@ -923,7 +1272,7 @@
     end
     block  ;; label = @1
       i32.const 0
-      i32.load offset=3864
+      i32.load offset=3944
       local.tee 0
       i32.eqz
       br_if 0 (;@1;)
@@ -1286,14 +1635,14 @@
     (local i32)
     block  ;; label = @1
       i32.const 0
-      i32.load offset=4952
+      i32.load offset=5032
       local.tee 1
       br_if 0 (;@1;)
-      i32.const 4928
+      i32.const 5008
       local.set 1
       i32.const 0
-      i32.const 4928
-      i32.store offset=4952
+      i32.const 5008
+      i32.store offset=5032
     end
     i32.const 0
     local.get 0
@@ -1303,10 +1652,10 @@
     select
     i32.const 1
     i32.shl
-    i32.const 2992
+    i32.const 3072
     i32.add
     i32.load16_u
-    i32.const 1427
+    i32.const 1508
     i32.add
     local.get 1
     i32.load offset=20
@@ -1326,7 +1675,7 @@
     call $fwrite
     i32.ne
     select)
-  (func $abort (type 9)
+  (func $abort (type 10)
     unreachable
     unreachable)
   (func $vfprintf (type 0) (param i32 i32 i32) (result i32)
@@ -1507,7 +1856,7 @@
     i32.add
     global.set 0
     local.get 0)
-  (func $printf_core (type 10) (param i32 i32 i32 i32 i32) (result i32)
+  (func $printf_core (type 11) (param i32 i32 i32 i32 i32) (result i32)
     (local i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i32 i64 i64 f64 i32 i32 i32 i32 i32 i32 f64)
     global.get 0
     i32.const 880
@@ -2283,7 +2632,7 @@
                     i32.const 58
                     i32.mul
                     i32.add
-                    i32.const 3087
+                    i32.const 3167
                     i32.add
                     i32.load8_u
                     local.tee 20
@@ -2513,7 +2862,7 @@
                                                   i32.wrap_i64
                                                   i32.const 15
                                                   i32.and
-                                                  i32.const 3616
+                                                  i32.const 3696
                                                   i32.add
                                                   i32.load8_u
                                                   local.get 25
@@ -2781,7 +3130,7 @@
                                       br 9 (;@8;)
                                     end
                                     i32.const 0
-                                    i32.load offset=3872
+                                    i32.load offset=3952
                                     call $strerror
                                     local.set 21
                                     br 1 (;@15;)
@@ -5347,7 +5696,7 @@
                 end
                 i32.const 0
                 i32.const 28
-                i32.store offset=3872
+                i32.store offset=3952
                 br 4 (;@2;)
               end
               local.get 38
@@ -5585,7 +5934,7 @@
                 end
                 local.get 20
                 local.get 21
-                i32.const 3616
+                i32.const 3696
                 i32.add
                 i32.load8_u
                 local.get 22
@@ -5980,7 +6329,7 @@
         end
         i32.const 0
         i32.const 61
-        i32.store offset=3872
+        i32.store offset=3952
       end
       i32.const -1
       local.set 19
@@ -5990,7 +6339,7 @@
     i32.add
     global.set 0
     local.get 19)
-  (func $pop_arg (type 11) (param i32 i32 i32)
+  (func $pop_arg (type 12) (param i32 i32 i32)
     block  ;; label = @1
       block  ;; label = @2
         block  ;; label = @3
@@ -6258,7 +6607,7 @@
       i32.load
       i32.store
     end)
-  (func $pad (type 12) (param i32 i32 i32 i32 i32)
+  (func $pad (type 13) (param i32 i32 i32 i32 i32)
     (local i32)
     global.get 0
     i32.const 256
@@ -6328,9 +6677,9 @@
     i32.const 256
     i32.add
     global.set 0)
-  (func $long_double_not_supported (type 9)
-    i32.const 1296
-    i32.const 3752
+  (func $long_double_not_supported (type 10)
+    i32.const 1377
+    i32.const 3832
     call $fputs
     drop
     call $abort
@@ -7580,7 +7929,7 @@
       block  ;; label = @2
         block  ;; label = @3
           i32.const 0
-          i32.load offset=4928
+          i32.load offset=5008
           br_if 0 (;@3;)
           block  ;; label = @4
             local.get 1
@@ -7591,7 +7940,7 @@
             br_if 0 (;@4;)
             i32.const 0
             i32.const 25
-            i32.store offset=3872
+            i32.store offset=3952
             br 2 (;@2;)
           end
           local.get 0
@@ -7705,13 +8054,13 @@
         end
         i32.const 0
         i32.const 25
-        i32.store offset=3872
+        i32.store offset=3952
       end
       i32.const -1
       local.set 3
     end
     local.get 3)
-  (func $frexp (type 13) (param f64 i32) (result f64)
+  (func $frexp (type 14) (param f64 i32) (result f64)
     (local i64 i32)
     block  ;; label = @1
       local.get 0
@@ -7769,23 +8118,32 @@
       local.set 0
     end
     local.get 0)
-  (func $dummy.1 (type 9))
-  (func $__wasm_call_dtors (type 9)
+  (func $dummy.1 (type 10))
+  (func $__wasm_call_dtors (type 10)
     call $dummy.1
     call $__stdio_exit)
-  (func $get_iops.command_export (type 7) (param i64 i64 i64 i64 i64)
+  (func $get_iops_for_long_long.command_export (type 7) (param i64 i64 i64 i64 i64)
     local.get 0
     local.get 1
     local.get 2
     local.get 3
     local.get 4
-    call $get_iops
+    call $get_iops_for_long_long
+    call $__wasm_call_dtors)
+  (func $get_iops_for_int.command_export (type 8) (param i64 i32 i32 i32 i32)
+    local.get 0
+    local.get 1
+    local.get 2
+    local.get 3
+    local.get 4
+    call $get_iops_for_int
     call $__wasm_call_dtors)
   (table (;0;) 5 5 funcref)
   (memory (;0;) 2)
-  (global (;0;) (mut i32) (i32.const 70512))
+  (global (;0;) (mut i32) (i32.const 70592))
   (export "memory" (memory 0))
-  (export "get_iops" (func $get_iops.command_export))
+  (export "get_iops_for_long_long" (func $get_iops_for_long_long.command_export))
+  (export "get_iops_for_int" (func $get_iops_for_int.command_export))
   (elem (;0;) (i32.const 1) func $__stdio_write $__stdio_close $__stdout_write $__stdio_seek)
-  (data (;0;) (i32.const 1024) "-+   0X0x\00-0X+0X 0X-0x+0x 0x\00nan\00inf\00NAN\00INF\00.\00(null)\00Please give me a big enough count\0a\00for long long, %lld times integer operations, cost %lldms\0a\00for long long, integer operations per second: %f\0a\00--------------------------------------------------------------------[%d]\0a\00Support for formatting long double values is currently disabled.\0aTo enable it, add -lc-printscan-long-double to the link command.\0a\00Success\00Illegal byte sequence\00Domain error\00Result not representable\00Not a tty\00Permission denied\00Operation not permitted\00No such file or directory\00No such process\00File exists\00Value too large for data type\00No space left on device\00Out of memory\00Resource busy\00Interrupted system call\00Resource temporarily unavailable\00Invalid seek\00Cross-device link\00Read-only file system\00Directory not empty\00Connection reset by peer\00Operation timed out\00Connection refused\00Host is unreachable\00Address in use\00Broken pipe\00I/O error\00No such device or address\00No such device\00Not a directory\00Is a directory\00Text file busy\00Exec format error\00Invalid argument\00Argument list too long\00Symbolic link loop\00Filename too long\00Too many open files in system\00No file descriptors available\00Bad file descriptor\00No child process\00Bad address\00File too large\00Too many links\00No locks available\00Resource deadlock would occur\00State not recoverable\00Previous owner died\00Operation canceled\00Function not implemented\00No message of desired type\00Identifier removed\00Link has been severed\00Protocol error\00Bad message\00Not a socket\00Destination address required\00Message too large\00Protocol wrong type for socket\00Protocol not available\00Protocol not supported\00Not supported\00Address family not supported by protocol\00Address not available\00Network is down\00Network unreachable\00Connection reset by network\00Connection aborted\00No buffer space available\00Socket is connected\00Socket not connected\00Operation already in progress\00Operation in progress\00Stale file handle\00Quota exceeded\00Multihop attempted\00Capabilities insufficient\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00u\02N\00\d6\01\e2\04\b9\04\18\01\8e\05\ed\02\16\04\f2\00\97\03\01\038\05\af\01\82\01O\03/\04\1e\00\d4\05\a2\00\12\03\1e\03\c2\01\de\03\08\00\ac\05\00\01d\02\f1\01e\054\02\8c\02\cf\02-\03L\04\e3\05\9f\02\f8\04\1c\05\08\05\b1\02K\05\15\02x\00R\02<\03\f1\03\e4\00\c3\03}\04\cc\00\aa\03y\05$\02n\01m\03\22\04\ab\04D\00\fb\01\ae\00\83\03`\00\e5\01\07\04\94\04^\04+\00X\019\01\92\00\c2\05\9b\01C\02F\01\f6\05\00\00\00\00\00\00\19\00\0a\00\19\19\19\00\00\00\00\05\00\00\00\00\00\00\09\00\00\00\00\0b\00\00\00\00\00\00\00\00\19\00\11\0a\19\19\19\03\0a\07\00\01\1b\09\0b\18\00\00\09\06\0b\00\00\0b\00\06\19\00\00\00\19\19\19\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0e\00\00\00\00\00\00\00\00\19\00\0a\0d\19\19\19\00\0d\00\00\02\00\09\0e\00\00\00\09\00\0e\00\00\0e\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0c\00\00\00\00\00\00\00\00\00\00\00\13\00\00\00\00\13\00\00\00\00\09\0c\00\00\00\00\00\0c\00\00\0c\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\00\00\00\00\0f\00\00\00\04\0f\00\00\00\00\09\10\00\00\00\00\00\10\00\00\10\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\12\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\11\00\00\00\00\09\12\00\00\00\00\00\12\00\00\12\00\00\1a\00\00\00\1a\1a\1a\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\1a\00\00\00\1a\1a\1a\00\00\00\00\00\00\09\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\14\00\00\00\00\00\00\00\00\00\00\00\17\00\00\00\00\17\00\00\00\00\09\14\00\00\00\00\00\14\00\00\14\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\16\00\00\00\00\00\00\00\00\00\00\00\15\00\00\00\00\15\00\00\00\00\09\16\00\00\00\00\00\16\00\00\16\00\000123456789ABCDEF")
-  (data (;1;) (i32.const 3632) "\05\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\04\00\00\008\0f\00\00\00\04\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\0a\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\000\0e\00\00\00\00\00\00\05\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\04\00\00\00d\13\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\ff\ff\ff\ff\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\a8\0e\00\00"))
+  (data (;0;) (i32.const 1024) "-+   0X0x\00-0X+0X 0X-0x+0x 0x\00nan\00inf\00NAN\00INF\00.\00(null)\00Please give me a big enough count\0a\00int, %lld times integer operations, cost %lldms\0a\00long long, %lld times integer operations, cost %lldms\0a\00int, integer operations per second: %f\0a\00long long, integer operations per second: %f\0a\00--------------------------------------------------------------------[%d]\0a\00Support for formatting long double values is currently disabled.\0aTo enable it, add -lc-printscan-long-double to the link command.\0a\00Success\00Illegal byte sequence\00Domain error\00Result not representable\00Not a tty\00Permission denied\00Operation not permitted\00No such file or directory\00No such process\00File exists\00Value too large for data type\00No space left on device\00Out of memory\00Resource busy\00Interrupted system call\00Resource temporarily unavailable\00Invalid seek\00Cross-device link\00Read-only file system\00Directory not empty\00Connection reset by peer\00Operation timed out\00Connection refused\00Host is unreachable\00Address in use\00Broken pipe\00I/O error\00No such device or address\00No such device\00Not a directory\00Is a directory\00Text file busy\00Exec format error\00Invalid argument\00Argument list too long\00Symbolic link loop\00Filename too long\00Too many open files in system\00No file descriptors available\00Bad file descriptor\00No child process\00Bad address\00File too large\00Too many links\00No locks available\00Resource deadlock would occur\00State not recoverable\00Previous owner died\00Operation canceled\00Function not implemented\00No message of desired type\00Identifier removed\00Link has been severed\00Protocol error\00Bad message\00Not a socket\00Destination address required\00Message too large\00Protocol wrong type for socket\00Protocol not available\00Protocol not supported\00Not supported\00Address family not supported by protocol\00Address not available\00Network is down\00Network unreachable\00Connection reset by network\00Connection aborted\00No buffer space available\00Socket is connected\00Socket not connected\00Operation already in progress\00Operation in progress\00Stale file handle\00Quota exceeded\00Multihop attempted\00Capabilities insufficient\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00u\02N\00\d6\01\e2\04\b9\04\18\01\8e\05\ed\02\16\04\f2\00\97\03\01\038\05\af\01\82\01O\03/\04\1e\00\d4\05\a2\00\12\03\1e\03\c2\01\de\03\08\00\ac\05\00\01d\02\f1\01e\054\02\8c\02\cf\02-\03L\04\e3\05\9f\02\f8\04\1c\05\08\05\b1\02K\05\15\02x\00R\02<\03\f1\03\e4\00\c3\03}\04\cc\00\aa\03y\05$\02n\01m\03\22\04\ab\04D\00\fb\01\ae\00\83\03`\00\e5\01\07\04\94\04^\04+\00X\019\01\92\00\c2\05\9b\01C\02F\01\f6\05\00\00\00\00\00\00\19\00\0a\00\19\19\19\00\00\00\00\05\00\00\00\00\00\00\09\00\00\00\00\0b\00\00\00\00\00\00\00\00\19\00\11\0a\19\19\19\03\0a\07\00\01\1b\09\0b\18\00\00\09\06\0b\00\00\0b\00\06\19\00\00\00\19\19\19\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0e\00\00\00\00\00\00\00\00\19\00\0a\0d\19\19\19\00\0d\00\00\02\00\09\0e\00\00\00\09\00\0e\00\00\0e\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0c\00\00\00\00\00\00\00\00\00\00\00\13\00\00\00\00\13\00\00\00\00\09\0c\00\00\00\00\00\0c\00\00\0c\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\10\00\00\00\00\00\00\00\00\00\00\00\0f\00\00\00\04\0f\00\00\00\00\09\10\00\00\00\00\00\10\00\00\10\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\12\00\00\00\00\00\00\00\00\00\00\00\11\00\00\00\00\11\00\00\00\00\09\12\00\00\00\00\00\12\00\00\12\00\00\1a\00\00\00\1a\1a\1a\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\1a\00\00\00\1a\1a\1a\00\00\00\00\00\00\09\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\14\00\00\00\00\00\00\00\00\00\00\00\17\00\00\00\00\17\00\00\00\00\09\14\00\00\00\00\00\14\00\00\14\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\16\00\00\00\00\00\00\00\00\00\00\00\15\00\00\00\00\15\00\00\00\00\09\16\00\00\00\00\00\16\00\00\16\00\000123456789ABCDEF")
+  (data (;1;) (i32.const 3712) "\05\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\03\00\00\00\04\00\00\00\88\0f\00\00\00\04\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00\0a\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\80\0e\00\00\00\00\00\00\05\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\04\00\00\00\b4\13\00\00\00\00\00\00\00\00\00\00\00\00\00\00\02\00\00\00\00\00\00\00\ff\ff\ff\ff\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\f8\0e\00\00"))

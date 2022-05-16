@@ -30,8 +30,10 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut wasi_env = WasiState::new("import_example").finalize()?;
     let wasi_import_object = wasi_env.import_object(&module)?;
     let instance = Instance::new(&module, &wasi_import_object)?;
-    let run_func: NativeFunc<(i64, i64, i64, i64, i64), ()> = instance.exports.get_native_function("get_iops")?;
-    run_func.call(count, v1, v2, v3, v4)?;
+    let get_iops_for_int: NativeFunc<(i64, i32, i32, i32, i32), ()> = instance.exports.get_native_function("get_iops_for_int")?;
+    let get_iops_for_long_long: NativeFunc<(i64, i64, i64, i64, i64), ()> = instance.exports.get_native_function("get_iops_for_long_long")?;
+    get_iops_for_int.call(count, v1 as i32, v2 as i32, v3 as i32, v4 as i32)?;
+    get_iops_for_long_long.call(count, v1, v2, v3, v4)?;
 
     Ok(())
 }

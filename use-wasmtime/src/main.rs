@@ -24,7 +24,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     let module = Module::from_file(&engine, wasm_file_path)?;
     linker.module(&mut store, "", &module)?;
     linker
-        .get(&mut store, "", "get_iops").unwrap().into_func().unwrap()
+        .get(&mut store, "", "get_iops_for_int").unwrap().into_func().unwrap()
+        .typed::<(i64, i32, i32, i32, i32), (), _>(&store)?
+        .call(&mut store, (count, v1 as i32, v2 as i32, v3 as i32, v4 as i32))?;
+    linker
+        .get(&mut store, "", "get_iops_for_long_long").unwrap().into_func().unwrap()
         .typed::<(i64, i64, i64, i64, i64), (), _>(&store)?
         .call(&mut store, (count, v1, v2, v3, v4))?;
 
