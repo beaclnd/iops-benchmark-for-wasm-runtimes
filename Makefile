@@ -2,7 +2,7 @@ main: iops.wasm bin/use-wasmer bin/use-wasmtime
 	gcc -o main main.c iops.c
 
 iops.wasm:
-	clang --target=wasm32-wasi --sysroot ~/Workspace/MyApplications/wasi-sdk-15.0/share/wasi-sysroot -nostartfiles -Wl,--no-entry,--export-dynamic -o iops.wasm iops.c
+	clang --target=wasm32-wasi --sysroot ~/Workspace/MyApplications/wasi-sdk-15.0/share/wasi-sysroot -nostartfiles -Wl,--export-dynamic -DWITHSTART -o iops.wasm iops.c
 	wasm2wat iops.wasm > iops.wat
 
 bin/use-wasmer:
